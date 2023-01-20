@@ -27,15 +27,17 @@ func GenerateHeaderBasedOnPropagator(propagator string, traceID string) (http.He
 			HeaderNameW3C: {fmt.Sprintf("00-%s-%s-01", traceID, RandHexStringRunes(16))},
 		}, nil
 	case PropagatorB3:
+		req, _ := http.NewRequest("GET", "", nil)
 		// Docs: https://github.com/openzipkin/b3-propagation#single-header
-		return http.Header{
-			HeaderNameB3: {fmt.Sprintf("%s-%s-1", traceID, RandHexStringRunes(8))},
-		}, nil
+		header := req.Header
+		header[HeaderNameB3] = []string{fmt.Sprintf("%s-%s-1", traceID, RandHexStringRunes(8))}
+		return header, nil
 	case PropagatorJaeger:
-		// Docs: https://www.jaegertracing.io/docs/1.29/client-libraries/#tracespan-identity
-		return http.Header{
-			HeaderNameJaeger: {fmt.Sprintf("%s:%s:0:1", traceID, RandHexStringRunes(8))},
-		}, nil
+		req, _ := http.NewRequest("GET", "", nil)
+		// Docs: https://github.com/openzipkin/b3-propagation#single-header
+		header := req.Header
+		header[HeaderNameJaeger] = []string{fmt.Sprintf("%s:%s:0:1", traceID, RandHexStringRunes(8))}
+		return header, nil
 	default:
 		return nil, fmt.Errorf("unknown propagator: %s", propagator)
 	}
