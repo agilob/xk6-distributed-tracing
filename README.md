@@ -1,8 +1,8 @@
 # xk6-distributed-tracing
 
-This extension adds distributed tracing support to [k6](https://github.com/grafana/k6)! 
+This extension adds distributed tracing support to [k6](https://github.com/grafana/k6)!
 
-That means that if you're testing an instrumented system, you can use this extension to start the traces on k6. 
+That means that if you're testing an instrumented system, you can use this extension to start the traces on k6.
 
 Currently, it supports HTTP requests and the following propagation formats: `w3c`, `b3`, and `jaeger`.
 
@@ -26,7 +26,7 @@ $ go install go.k6.io/xk6/cmd/xk6@latest
 2. Build the binary:
 
 ```bash
-$ xk6 build --with github.com/grafana/xk6-distributed-tracing@latest
+$ xk6 build --with github.com/agilob/xk6-distributed-tracing@latest
 ```
 
 ## Example

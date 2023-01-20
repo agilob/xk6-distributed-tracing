@@ -3,9 +3,9 @@ package tracing
 import (
 	"fmt"
 
+	"github.com/agilob/xk6-distributed-tracing/client"
+	crocospans "github.com/agilob/xk6-distributed-tracing/cloud"
 	"github.com/dop251/goja"
-	"github.com/grafana/xk6-distributed-tracing/client"
-	crocospans "github.com/grafana/xk6-distributed-tracing/cloud"
 	"go.k6.io/k6/js/common"
 	"go.k6.io/k6/js/modules"
 	k6HTTP "go.k6.io/k6/js/modules/k6/http"

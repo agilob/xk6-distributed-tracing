@@ -4,7 +4,7 @@ DOCKER_RUN=docker run
 
 .PHONY: build
 build:
-	xk6 build master --with github.com/grafana/xk6-distributed-tracing="${PWD}/../xk6-distributed-tracing"
+	xk6 build master --with github.com/agilob/xk6-distributed-tracing="${PWD}/../xk6-distributed-tracing"
 
 .PHONY: proto
 proto:
